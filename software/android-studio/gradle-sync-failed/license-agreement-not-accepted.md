@@ -12,10 +12,12 @@ Failed to install the following Android SDK packages as some licenses have not b
 First, look in the build log. There is a line that says "_Android SDK Platform \<a number\>_". Remember the number-- that's your **API Level**. 
 
 Second, go to the preferences:
-![[Pasted image 20211014133125.png]]
+
+![Error](https://raw.githubusercontent.com/nhs-t10/yog22-knowledge/master/software/android-studio/gradle-sync-failed/Pasted%20image%2020211014133125.png)
 
 and select **Appearance & Behavior** > **System Settings** > **Android SDK**.
-![[Pasted image 20211014133311.png]]
+
+![Settings](https://raw.githubusercontent.com/nhs-t10/yog22-knowledge/master/software/android-studio/gradle-sync-failed/Pasted%20image%2020211014133311.png)
 
 This data table will have all up-to-date versions of Android. Make sure that the row with your _api level_ has its checkmark checked, and hit "Apply".
 
