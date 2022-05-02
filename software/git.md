@@ -1,6 +1,6 @@
 # Git
 
-Git is a [Version Control System](Glossary#Version%20Control%20System). It's built to let people work on the same project at the same time, while also not being reliant on an internet connection. 
+Git is a [Version Control System](glossary.md#Version%20Control%20System). It's built to let people work on the same project at the same time, while also not being reliant on an internet connection. 
 
 Git has many tools, but the basic usage is very simple.
 
@@ -76,7 +76,7 @@ In Git, you can see *every* previous version, no matter who made it. As long as 
 That will show you something like this:
 ```
 commit bb0262d991e3bcf9ceb5498e4df35a805fbb9cd7 (HEAD -> master, origin/master, origin/HEAD)
-Author: coleh <coleh@coleh.net>
+Author: chlohal <coleh@coleh.net>
 Date:   Tue Oct 12 21:28:48 2021 -0400
 
     Fix error when trying to hash empty directory
@@ -104,9 +104,6 @@ Date:   Tue Oct 12 19:07:36 2021 -0400
 
 **Because showing every commit at once is too much, Git uses a "pager" program. Different computers have different pagers; press "h" to see how to use yours.**
 
-After you've found the commit that you want to inspect, copy the twenty-digit [commit ID](Glossary#Commit%20ID) and enter `git checkout <the ID>` to load it. 
+After you've found the commit that you want to inspect, copy the twenty-digit [commit ID](glossary.md#Commit%20ID) and enter `git checkout <the ID>` to load it. 
 
 Once you're done with the commit, use `git checkout master` to go back to the future.
-
-
-## GitHub Desktop
