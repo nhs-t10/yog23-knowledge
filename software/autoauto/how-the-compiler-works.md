@@ -263,6 +263,82 @@ To help with logging, the compiler has a module called `android-studio-logging`,
 - `sendMessages` works like `sendPlainMessage`, but on an array.
 - `printTypeCounts` logs how many errors, warnings, and info-messages have been printed.
 
+## Bytecode and Why it's Cool
+
+Autoauto has had **three** main versions:
+
+| |v0|v1|v2|
+|-|-|-|-|
+|Environment|Ran Entirely in Java|Recursive Descent Evaluation|Bytecode|
+|Speed|Slow! Parser had to parse code from `String`s|pretty slow|Quicker|
+
+### What's a Recursive Descent Evaluator?
+
+RDEs are simple programming-language environments. They get a "parse tree" like this one for `3 + 2`:
+
+```mermaid
+erDiagram
+    Addition ||--|| Number_3 : "left side"
+    Addition ||--|| Number_2 : "right side"
+```
+
+From that, they do these things in this order:
+
+1. Run `Addition`
+2. Find out that `Addition` needs two arguments
+3. Run the left side
+4. Get a value from the left side
+5. Run the right side
+6. Get a value from the right side
+7. Add the two values
+8. Return the sum
+
+In Autoauto v1 (used in the 2021-2022 season), the compiler made "Java soup", which was ran by a complex Java runtime program. This was slow because `n * log(n)` Java operations were needed for just `n` Autoauto operations. Everything that it did needed to be visited loaded from the tree before being run! Although Java made that loading pretty easy to code, it wasn't efficient.
+
+### What's a Bytecode?
+
+Bytecode is a different programming-language environment. Instead of having to visit a parse tree for *every* run, bytecode uses a thing called a "stack".
+
+For `3 + 2`, here's what the bytecode looks like:
+
+```sql
+3
+2
+ADD
+```
+
+...and here's what it has to do:
+
+1) Run `3`: add 3 to the stack.
+2) Run `2`: add 2 to the stack
+3) Run `ADD`: 
+	1) Take two things off the stack
+	2) Add them together
+	3) Push the sum back onto the stack.
+
+On average, this only has to do `n` Java operations for `n` Autoauto operations. It's *far* more efficient than a recursive descent.
+
+Bytecode is a complex and hard-to-explain topic, and this document is *not* long enough to cover it. Robert Nystrom's amazing book *Crafting Interpreters* (free as a blog post on his website) has [a section on this topic](https://craftinginterpreters.com/chunks-of-bytecode.html#bytecode). The Wikipedia articles on [bytecode](https://en.wikipedia.org/wiki/Bytecode) and [stack machines](https://en.wikipedia.org/wiki/Stack_machine) are also very helpful and descriptive.
+
+### Which Version is "Now?"
+
+The current "default" is `optimized-bytecode` (v2), but people can use `compilerMode: "recursive-descent-java"` to request v1. 
+
+### What instructions does Autoauto bytecode use? How does it work?
+
+See <https://github.com/nhs-t10/autoauto-documentation/blob/master/md/bytecode.md> :)
+
+
+### "Faster"? How much? Is it worth it?
+
+Here's a benchmark! The task was to calculate every prime number under 1000 (the source is [here](https://github.com/nhs-t10/Robotics_2021_2022/blob/664afb74ac0e0d4f345f3f290988cc5fe8988b71/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/opmodes/auto/bccomp/eratosthenes.autoauto))
+
+|Version|Time (ms)|Notes|
+|-|-|-|
+|v0|n/a|didn't have support for tables; couldn't run|
+|v1|180000ms +|I stopped it after 3 minutes|
+|v2|524ms|
+
 
 
 
