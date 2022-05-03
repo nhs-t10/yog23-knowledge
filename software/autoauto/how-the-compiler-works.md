@@ -228,11 +228,42 @@ The compiler remembers the file's output by assigning it a **cache key**. The ca
 
 If any of these change, then the cache is invalidated, and the file is re-compiled.
 
-The cache is handled by a separate module, `cache`. It uses a special algorithm called `structured-serialise`, which can save almost anything to a file. 
+The cache's specifics are handled by a separate module, `cache`. It uses a special algorithm called `structured-serialise`, which can save almost anything to a file.
 
 ## Logging
 
 Android Studio makes the compiler use a weird JSON format called "AGPBI". I assume that stands for something, but I don't know what.
+You should never have to deal with it directly, but here is the format: 
+```js
+{
+      "kind":"ERROR", //ERROR, WARNING, or INFO
+      "text":"title text",
+      "original":"detail text",
+      "sources": [{ //optional
+          "file":"/path/to/source.java",
+          "position":{
+              "startLine":1,
+              "startColumn":2,
+              "startOffset":3,
+              "endLine":4,
+              "endColumn":5,
+              "endOffset":6
+          }
+      }]
+  }
+```
+It should be logged to `stderr`, prefixed by `AGPBI: `.
+
+To help with logging, the compiler has a module called `android-studio-logging`, which provides several functions!
+- `sendTreeLocationMessage` parses a thing and sends it. The thing can be a string, an error, an object like above, or an array of objects like above.
+- `sendPlainMessage` can *only* send an object like above.
+- `warning` sends a string as a warning.
+- `beginOutputCapture` stops sending messages, and instead records them to an array.
+- `getCapturedOutput` stops capturing messages and returns an array of the messages that were captured.
+- `sendMessages` works like `sendPlainMessage`, but on an array.
+- `printTypeCounts` logs how many errors, warnings, and info-messages have been printed.
+
+
 
 
 
