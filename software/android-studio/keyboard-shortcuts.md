@@ -29,3 +29,16 @@ Put your text-cursor on a symbol (class, method, or variable). Pressing CTRL + Q
 Put your text-cursor on a symbol. SHIFT + F6 will safely rename it, making sure that the definition and all references are changed.
 
 ![](kb-shortcut-gifs/shift-f6.gif)
+
+## Search in All Files: `CTRL` + `SHIFT` + `F`
+
+CTRL + SHIFT + F can search for a search term in *every* file. This is different from double-shift: while double-shift searches *file names*, Search-in-all-files searches *file contents*.
+
+![](kb-shortcut-gifs/ctrl-shift-f.gif)
+
+
+## Request Autocomplete: `CTRL` + `SPACE`
+
+Autocomplete will automatically appear when you type something. If you want to request it *right away*, then you can type `CTRL` + `SPACE`. This is especially helpful for Autoauto, where you don't have to use the manager's name to call a method!
+
+![](kb-shortcut-gifs/ctrl-space.gif)
