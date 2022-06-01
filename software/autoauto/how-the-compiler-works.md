@@ -21,7 +21,8 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 > *Added at the very top of the file. If there is already a `plugins` block, add the middle line to the __end__ of that block.*
 
 > ```gradle
-> task generateAutoautoSources(type: NodeTask) {  
+> task autoautoCompiler(type: NodeTask) {  
+>    args = ["--build-history"]
 >    script = file("src/main/scripts/autoauto-compiler/index.js")  
 > }
 > ```
@@ -30,7 +31,7 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 > ```gradle
 > android {  
 >   gradle.projectsEvaluated {  
->        preBuild.dependsOn(generateAutoautoSources)  
+>        preBuild.dependsOn(autoautoCompiler)  
 >    }
 >    sourceSets {  
 >        test {  
