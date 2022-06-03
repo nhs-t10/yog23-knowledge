@@ -6,9 +6,7 @@
 2) Make a new class inside the manager's package. It *SHOULD* (but not *MUST*) be named like `packageName + "Manager"`.
 3) Make the class `extend FeatureManager`. You might have to use `ALT` + `ENTER` to import `FeatureManager`.
 
-You're done! This is a simple manager. 
-
-However, it can't do anything yet.
+You're done! This is a simple manager. However, it can't do anything yet.
 
 ## Behaviour
 

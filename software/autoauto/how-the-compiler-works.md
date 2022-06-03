@@ -22,7 +22,7 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 
 > ```gradle
 > task autoautoCompiler(type: NodeTask) {  
->    args = ["--build-history"]
+>    args = ["--build-history", "--agpbi"]
 >    script = file("src/main/scripts/autoauto-compiler/index.js")  
 > }
 > ```
@@ -59,8 +59,8 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 
 These modifications tell Gradle four things:
 - This build needs to use Node.js
-- `generateAutoautoSources` calls the given file with Node.js
-- Before building the app, call `generateAutoautoSources`.
+- `autoautoCompiler` calls the given file with Node.js
+- Before building the app, call `autoautoCompiler`.
 - If the computer doesn't have Node.js, download it.
 - The `gen` and `test` folders should be used for Java.
 

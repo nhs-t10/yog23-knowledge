@@ -9,7 +9,6 @@ A Commit ID is a twenty-character semi-random hash that identifies a single comm
 ## Version Control System
 A VCS helps to keep track of changes in a project over time. 
 
-
 ## Async Function
 Javascript lets you do "kinda-multi-threading" *very* easily: all you need to do is `async function foo() { ... }` instead of `function foo() { ... }`. 
 
@@ -17,4 +16,8 @@ If you're calling an async function, you should await it: `var result = await fo
 
 ## Javascript
 
-A language that does everything better than Java, except for multithreading.
+A language that does everything better than Java, except for multithreading and compiling.
+
+## Menu Bar
+
+Android Studio's menu bar has many system actions. It's in the top of the *window* on Windows and Linux. It's in the top of the *screen* on Mac.
