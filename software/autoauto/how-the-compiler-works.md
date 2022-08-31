@@ -21,10 +21,18 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 > *Added at the very top of the file. If there is already a `plugins` block, add the middle line to the __end__ of that block.*
 
 > ```gradle
-> task autoautoCompiler(type: NodeTask) {  
->    args = ["--build-history", "--agpbi"]
->    script = file("src/main/scripts/autoauto-compiler/index.js")  
-> }
+> task autoautoCompiler(type: NodeTask) {> 
+>     args = ["--build-history", "--agpbi", "--make-tests", "--run-cleanup",> 
+>             //The `--in` and `--out` arguments use GStrings, a fancy way of putting strings together.> 
+>             //See <http://docs.groovy-lang.org/latest/html/documentation/index.html#all-strings> for more info.> 
+> 
+>             "--in=${file("src/main/java")}", "--in=${file("src/test/java")}", //Directories to take Autoauto files from> 
+>             "--out=${file("gen")}", //directory to put generated opmodes into> 
+>             "--test-dir=${file("src/test/java")}", //directory to toss tests into> 
+>             "--assets-dir=${file("src/main/assets")}" //directory to put build-history into> 
+>     ]> 
+>     script = file("src/main/scripts/autoauto-compiler/index.js")> 
+> }> 
 > ```
 > *Added at the end of the file.*
 
