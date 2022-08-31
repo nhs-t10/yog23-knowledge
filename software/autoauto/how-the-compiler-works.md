@@ -13,14 +13,14 @@ Autoauto's compiler is written in Javascript, using Node.js.
 
 In order to make Android Studio (java) run the Autoauto compiler (javascript), we have a customized Gradle build script in the `TeamCode` folder. Here are the customizations necessary-- __most of these should be applied already, but if Autoauto isn't updating, check on them.__
 
-> ```gradle
+> ```groovy
 > plugins {
 >      id "com.github.node-gradle.node" version "3.0.1"
 > }
 > ```
 > *Added at the very top of the file. If there is already a `plugins` block, add the middle line to the __end__ of that block.*
 
-> ```gradle
+> ```groovy
 > task autoautoCompiler(type: NodeTask) {> 
 >     args = ["--build-history", "--agpbi", "--make-tests", "--run-cleanup",> 
 >             //The `--in` and `--out` arguments use GStrings, a fancy way of putting strings together.> 
@@ -36,7 +36,7 @@ In order to make Android Studio (java) run the Autoauto compiler (javascript), w
 > ```
 > *Added at the end of the file.*
 
-> ```gradle
+> ```groovy
 > android {  
 >   gradle.projectsEvaluated {  
 >        preBuild.dependsOn(autoautoCompiler)  
