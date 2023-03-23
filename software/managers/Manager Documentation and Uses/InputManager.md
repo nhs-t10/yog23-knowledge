@@ -75,3 +75,55 @@ Checks if you activate an input twice in quick succession. The exact timing wind
 ### GradualStickNode
 
 Takes a float value and gradually accelerates it to its maximum from a set minimum. When the associated input (likely a stick) is no longer active, it will gradually decelerate to 0. The most effective Node to use if you want a value to increase or decrease over time. 
+
+### IfNode
+
+Can run if statements (in theory), but we haven't used it this year and the last I heard, it didn't work. If you want to use it, please double check it works and/or fix it if needed. :D
+
+### InputManagerInputNode
+
+The big boss of all Nodes, they all get their basic properties from this one. If you want to learn more about how Nodes work, you can check here. However, I'd recommend against changing this node, since messing with it could break every other node.
+
+### InputVariableNode
+
+Takes in a variable and outputs it as a Node output. Some nodes don't like direct values, so if they want a node, use this to convert.
+
+### InversionNode
+
+Takes in an input and a boolean. If the boolean is true, the Node reverses the input. It's a fairly simple node allowing you to toggle between standard and inverse controls at the press of a button.
+
+### JoystickNode
+
+Another baseline node. Takes float values of stick positions from the gamepad data. Two joystick nodes are needed for both the X and Y components of a joystick.
+
+### MinusNode
+
+Takes in two inputs, and subtracts the second one from the first. A basic math node to take calculations out of loop.
+
+### MultiInputNode
+
+Takes in mutiple inputs and converts them into an array of inputs. Useful for combining drive values into a single array, instead of multiple floats.
+
+### MultiplyNode
+
+Takes in two inputs, and multiples them together. A basic math node to take calculations out of loop.
+
+### OneOfNode
+
+Takes in multiple inputs, and returns the first input that is nonzero. For this purpose, booleans are treated as 0 and 1. If you have multiple inputs with certain priorities, you might want to use this. 
+
+### PlusNode
+
+Takes in two inputs, and adds them together. A basic math node to take calculations out of loop.
+
+### ScaleNode
+
+An older version of `MultiplyNode`. For most purposes, `MultiplyNode` is the superior option, as it can be used with non-input values.
+
+### StaticValueNode
+
+Creates a static variable but in Node form, so it can be used by other Nodes.
+
+### ToggleNode
+
+Takes an input as a toggle and flips between returning true and false when the input goes from inactive to active.
