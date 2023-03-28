@@ -9,7 +9,7 @@ CV is computer vision. To utilize it, create a pipeline (documentation at softwa
 
 ## Common Errors (1) (Please skip this until you understand parts 2 and 3, or this will confuse and befuddle you)
 
-MAKE SURE THE CAMERA IS INITIALIZED! See section 2.
+**MAKE SURE THE CAMERA IS INITIALIZED! See section 2.**
 
 If your CV is printing nothing, or weird results, when you do telemetry.log(output):
   - Make sure your camera is oriented properly (I recommend using the phone to view the camera stream - three dots in the top-left. Use the imgproc.rectangle command. See old pipelines for examples.)
