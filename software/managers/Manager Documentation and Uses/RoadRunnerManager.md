@@ -27,7 +27,9 @@ To do this, you can say:
 
 ```new Pose2d(x, y, Math.toRadians(heading))```
 
-Remember that `x` and `y` can be from -72 to 72 and that the axes are switched when looking at the field from the audience's point of view. When looking from this pint of view, positive x means up, negative x means down, positive y means left and negative y means right.
+Remember that `x` and `y` can be from -72 to 72 and that the axes are switched when looking at the field from the audience's point of view. 
+Or, it's from the perspective of the blue alliance.
+In effect, when looking at the field from the tables in the Da Vinci Lab, positive x is up, negative x is down, positive y is left and negative y is right.
 
 Next up, we need to pass in the `TelemetryManager` 
 
