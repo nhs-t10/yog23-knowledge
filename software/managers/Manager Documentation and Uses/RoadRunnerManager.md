@@ -1,6 +1,6 @@
-#Roadrunner Manager
+# Roadrunner Manager
 Created by @achyutS1281
-##General Overview
+## General Overview
 `RoadRunner Manager` is Manager for Road Runner!
 
 ![Duh! Image](https://media.tenor.com/SKdBU2zjlywAAAAM/duh-well.gif)
@@ -15,7 +15,7 @@ The best way to specify paths is using YAML files, but you can use other methods
 
 In this .md file, you will learn everything about `RoadRunnerManager` and how to best follow paths efficiently
 
-##How to set up a RoadRunnerManager in your TeleOp
+## How to set up a RoadRunnerManager in your TeleOp
 
 First up, you need to pass in your `hardwareMap`
 
