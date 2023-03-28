@@ -19,7 +19,7 @@ If your CV is printing nothing, or weird results, when you do telemetry.log(outp
 
 ## Initializing the Camera (2)
 
-Before using CV, you have to initialize the camera. Run webcam.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT) or cv.onOpened(). The first two parameters are resolution, and the last is orientation. 
+Before using CV, you have to initialize the camera. Run `webcam.startStreaming(640, 480, OpenCvCameraRotation.UPRIGHT)` or `cv.onOpened()`. The first two parameters are resolution, and the last is orientation. 
 More information at https://github.com/OpenFTC/EasyOpenCV/blob/master/doc/user_docs/camera_initialization_overview.md
 
 
