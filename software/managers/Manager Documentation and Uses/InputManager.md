@@ -34,6 +34,20 @@ Step 6: Use your input in `loop()` as needed (often as a condition for an if-sta
 
 Step 7: Once your input is read, perform whatever tasks are nessecary with that data, whether it be running functions, turning motors or servos, toggling variables, etc. Congrats! You successfully implemented `InputManager` into your TeleOp code!
 
+## How to Make a New Node
+
+If you really want to mess with the inputs in a way that isn't specified below, this is where to look.
+
+A good example node that you can borrow from is `MultiplyNode`, if you just want a quick template to modify. 
+
+In general the structure you need is:
+* Have at least one constructor that takes in an `InputManagerInputNode`, so you have the data to edit. 
+* Some local variables that can take on the `InputManagerInputNode` from the constructor, and a local `InputManagerNodeResult` variable for the result.
+* An `init` function that uses `(name of local InputNode).init(boss)` for all such local variables. The init function should take in an `InputManager`, usually named `boss`.
+* An `update` function that uses `(name of local InputNode).update()` for all such local variables. The update function is where all of the code to modify the inputs is found, and the changed values are saved to result.
+* A `getResult` function that returns an `InputManagerNodeResult` that returns the result. 
+* The complexity and key related functions are the same in all nodes but `ButtonNode` and `JoystickNode`, so you can just copy paste those from other nodes.
+
 ## List of Nodes and Their Uses
 
 ### AccelerationNode
